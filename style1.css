@@ -1,0 +1,120 @@
+/* ---- Background: haunted night ---- */
+.stApp{
+    background: radial-gradient(circle at top,
+        #000000 0%,
+        #0a0a0a 25%,
+        #1a0000 70%,
+        #000000 100%
+    );
+    min-height: 100vh;
+    font-family: 'Cinzel', 'Trajan Pro', 'Georgia', serif;
+    color: #f5e7e7;
+}
+
+/* ---- Bloody smoke vibe ---- */
+.stApp::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+}
+
+/* ---- Cards: black glass coffin ---- */
+.card{
+    background: rgba(10, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 26px;
+    border-radius: 18px;
+    border: 1px solid rgba(220,38,38,0.55);
+    box-shadow:
+        0 0 25px rgba(220,38,38,0.35),
+        inset 0 0 25px rgba(127,29,29,0.25);
+    margin-bottom: 30px;
+    transition: transform .25s ease, box-shadow .3s ease;
+}
+
+/* hover = jump scare micro-movement */
+.card:hover{
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 35px rgba(220,38,38,.65),
+        inset 0 0 35px rgba(127,29,29,.45);
+}
+
+/* ---- Headings: horror title glow ---- */
+h1, h2, h3{
+    color: #f87171;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 5px rgba(255,0,0,.9),
+        0 0 20px rgba(255,0,0,.5),
+        0 0 40px rgba(127,0,0,.5);
+}
+
+/* ---- Small paragraph text ---- */
+p{
+    color: #fef2f2;
+}
+
+/* ---- Metrics: blood blue aura ---- */
+div[data-testid="metric-container"]{
+    background: rgba(2, 6, 23, .7);
+    border-radius: 16px;
+    padding: 15px;
+    color: #f1f5f9;
+    border: 1px solid rgba(239,68,68,.6);
+    box-shadow:
+        0 0 16px rgba(239,68,68,.6);
+}
+
+/* ---- Metric value glow ---- */
+[data-testid="stMetricValue"]{
+    color: #fecaca !important;
+    text-shadow:
+        0 0 12px rgba(255,0,0,.9),
+        0 0 25px rgba(220,38,38,.6);
+}
+
+/* ---- Widgets: dark ritual controls ---- */
+.stSlider, .stSelectbox, .stNumberInput{
+    color: #fee2e2;
+}
+
+.css-1cpxqw2, .st-bw{
+    background: rgba(15, 0, 0, .7) !important;
+    border-radius: 14px;
+    border: 1px solid rgba(239,68,68,.5);
+}
+
+/* ---- Prediction box: bleeding neon ---- */
+.prediction-box{
+    background: linear-gradient(135deg,
+        #7f1d1d,
+        #b91c1c,
+        #dc2626
+    );
+    padding: 22px;
+    border-radius: 18px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    margin-top: 16px;
+    box-shadow:
+        0 0 25px rgba(220,38,38,.9),
+        0 0 55px rgba(127,29,29,.7);
+    text-shadow:
+        0 0 10px rgba(255,255,255,.9);
+}
+
+/* ---- Scrollbar like dripping blood ---- */
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(#7f1d1d, #dc2626);
+    border-radius: 10px;
+}
