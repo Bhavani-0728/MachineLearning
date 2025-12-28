@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 st.set_page_config(
-    page_title="Multiple Linear Regression 🎃",
+    page_title="✨ Multiple Linear Regression ✨",
     layout="centered"
 )
 
@@ -21,10 +21,10 @@ load_css("style1.css")
 
 st.markdown("""
 <div class="card">
-    <h1>🎃 Multiple Linear Regression 🎃</h1>
+    <h1>✨ Multiple Linear Regression ✨</h1>
     <p>
-        Predict <b>Tip Amount 💵</b> using multiple features  
-        (<b>Total Bill 🧾, Size 👥, Day 📅, Time ⏰ & Smoker 🚬</b>)
+        Predict <b>Tip Amount 💰</b> using multiple features  
+        (<b>Total Bill 📄, Size 👤, Day 🗓️, Time ⏳ & Smoker 🚭</b>)
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -36,12 +36,11 @@ def load_data():
 df = load_data()
 
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("📊 Dataset Preview 🔍")
+st.subheader("📊 Dataset Preview 🔎")
 st.dataframe(df.head())
 st.markdown('</div>', unsafe_allow_html=True)
 
 df_encoded = df.copy()
-
 df_encoded["sex"] = df_encoded["sex"].map({"Male": 1, "Female": 0})
 df_encoded["smoker"] = df_encoded["smoker"].map({"Yes": 1, "No": 0})
 df_encoded["time"] = df_encoded["time"].map({"Lunch": 0, "Dinner": 1})
@@ -68,54 +67,57 @@ r2 = r2_score(y_test, y_pred)
 adj_r2 = 1 - (1 - r2) * (len(y_test) - 1) / (len(y_test) - X.shape[1] - 1)
 
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("🕸️ Actual vs Predicted Tips 🧿")
+st.subheader("🌈 Actual vs Predicted Tips 🎯")
 
 fig, ax = plt.subplots()
 
-# dark background
-ax.set_facecolor("#0a0000")
-fig.patch.set_alpha(0)
+ax.set_facecolor("#001a1a")
+fig.patch.set_facecolor("#001a1a")
 
-# make ticks and borders visible
-ax.tick_params(colors="white", labelsize=10)
-ax.spines['bottom'].set_color('white')
-ax.spines['top'].set_color('white')
-ax.spines['left'].set_color('white')
-ax.spines['right'].set_color('white')
+ax.scatter(
+    y_test,
+    y_pred,
+    alpha=0.9,
+    color="#38bdf8",
+    edgecolors="#4ade80",
+    linewidth=0.6
+)
 
-# labels visible
-ax.set_xlabel("Actual Tip ", color="white")
-ax.set_ylabel("Predicted Tip ", color="white")
-ax.set_title("Actual vs Predicted", color="white")
-
-# neon red scatter
-ax.scatter(y_test, y_pred, alpha=0.8, color="#ff4d4d", edgecolors="white", linewidth=0.3)
-
-# reference line
 ax.plot(
     [y_test.min(), y_test.max()],
     [y_test.min(), y_test.max()],
-    color="#ff0000",
-    linewidth=2
+    color="#22c55e",
+    linewidth=2,
+    linestyle="--"
 )
+
+ax.set_xlabel("Actual Tip", color="#f0fdf4")
+ax.set_ylabel("Predicted Tip", color="#f0fdf4")
+ax.set_title("Actual vs Predicted", color="#bbf7d0", fontsize=12)
+
+ax.tick_params(colors="#f0fdf4")
+for spine in ax.spines.values():
+    spine.set_color("#4ade80")
 
 st.pyplot(fig)
 st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("📈 Model Performance ⚙️")
+st.subheader("📈 Model Performance 🧩")
 
 c1, c2 = st.columns(2)
-c1.metric("MAE ⚠️", f"{mae:.2f}")
-c2.metric("RMSE ⚠️", f"{rmse:.2f}")
+c1.metric("MAE ⚡", f"{mae:.2f}")
+c2.metric("RMSE ⚡", f"{rmse:.2f}")
+
 c3, c4 = st.columns(2)
-c3.metric("R² Score 📌", f"{r2:.3f}")
-c4.metric("Adj R² 📌", f"{adj_r2:.3f}")
+c3.metric("R² Score 🎯", f"{r2:.3f}")
+c4.metric("Adj R² 🎯", f"{adj_r2:.3f}")
+
 st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown(f"""
 <div class="card">
-    <h3>🧪 Model Coefficients 🧪</h3>
+    <h3>🧬 Model Coefficients 🧬</h3>
     <p>
         <b>Total Bill:</b> {model.coef_[0]:.3f}<br>
         <b>Size:</b> {model.coef_[1]:.3f}<br>
@@ -128,16 +130,15 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("🔮 Predict Tip Amount 🎯")
+st.subheader("🔮 Predict Tip Amount ⭐")
 
-bill = st.slider("💰 Total Bill", float(df.total_bill.min()), float(df.total_bill.max()), 30.0)
+bill = st.slider("💵 Total Bill", float(df.total_bill.min()), float(df.total_bill.max()), 30.0)
 size = st.slider("👥 Party Size", 1, 6, 2)
-sex = st.selectbox("🧑 Sex", ["Male", "Female"])
-smoker = st.selectbox("🚬 Smoker", ["Yes", "No"])
-day = st.selectbox("📅 Day", ["Thur", "Fri", "Sat", "Sun"])
-time = st.selectbox("⏰ Time", ["Lunch", "Dinner"])
+sex = st.selectbox("🧑‍🤝‍🧑 Sex", ["Male", "Female"])
+smoker = st.selectbox("🚭 Smoker", ["Yes", "No"])
+day = st.selectbox("🗓️ Day", ["Thur", "Fri", "Sat", "Sun"])
+time = st.selectbox("⏳ Time", ["Lunch", "Dinner"])
 
 input_data = np.array([[
     bill,
@@ -152,7 +153,7 @@ input_scaled = scaler.transform(input_data)
 predicted_tip = model.predict(input_scaled)[0]
 
 st.markdown(
-    f'<div class="prediction-box">🎃 Predicted Tip: $ {predicted_tip:.2f}</div>',
+    f'<div class="prediction-box">✨ Predicted Tip: $ {predicted_tip:.2f}</div>',
     unsafe_allow_html=True
 )
 
