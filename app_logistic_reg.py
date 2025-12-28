@@ -71,7 +71,7 @@ st.markdown('<div class="card">', unsafe_allow_html=True)
 st.subheader("🛰️ Confusion Matrix 🛸")
 
 fig, ax = plt.subplots()
-ax.imshow(cm, cmap="Greens")
+ax.imshow(cm, cmap="Blues")
 
 for i in range(2):
     for j in range(2):
