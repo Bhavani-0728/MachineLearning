@@ -1,57 +1,61 @@
 .stApp{
-    background: radial-gradient(circle at top,
-        #1a0033 0%,
-        #02010a 30%,
-        #000000 100%);
-    color: #e0e7ff;
+    background: linear-gradient(
+        135deg,
+        #0b3d2e 0%,
+        #0f5132 40%,
+        #123524 100%
+    );
+    color: #e8f5e9;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Cards */
 .card{
-    background: rgba(10, 5, 25, 0.85);
+    background: rgba(15, 55, 35, 0.85);
     padding: 25px;
-    border-radius: 16px;
-    border: 1px solid rgba(168, 85, 247, 0.5);
+    border-radius: 18px;
+    border: 1px solid rgba(134, 239, 172, 0.4);
     box-shadow:
-        0 0 25px rgba(168, 85, 247, 0.35),
-        0 0 60px rgba(6, 182, 212, 0.2);
+        0 0 25px rgba(34, 197, 94, 0.2),
+        inset 0 0 10px rgba(16, 185, 129, 0.25);
     margin-bottom: 25px;
 }
 
-/* Headings glow */
+/* Headings */
 h1, h2, h3{
-    color: #e9d5ff;
+    color: #bbf7d0;
     text-shadow:
-        0 0 8px rgba(168, 85, 247, 0.9),
-        0 0 14px rgba(6, 182, 212, 0.7);
+        0 0 6px rgba(134, 239, 172, 0.8),
+        0 0 10px rgba(74, 222, 128, 0.6);
 }
 
-/* Metric box */
+/* Metrics */
 div[data-testid="metric-container"]{
-    background: rgba(3, 7, 18, 0.8);
+    background: rgba(6, 68, 32, 0.9);
     border-radius: 16px;
     padding: 14px;
-    border: 1px solid rgba(6, 182, 212, 0.4);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    color: #dcfce7;
     box-shadow:
-        0 0 18px rgba(6, 182, 212, 0.4),
-        inset 0 0 12px rgba(6, 182, 212, 0.2);
-    color: #e0f2fe;
+        0 0 16px rgba(34, 197, 94, 0.35),
+        inset 0 0 10px rgba(21, 128, 61, 0.25);
 }
 
 /* Prediction box */
 .prediction-box{
-    background: linear-gradient(135deg,
-        #06b6d4,
-        #8b5cf6);
-    padding: 22px;
+    background: linear-gradient(
+        135deg,
+        #22c55e,
+        #4ade80
+    );
+    padding: 20px;
     border-radius: 18px;
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    color: white;
+    color: #022c22;
     box-shadow:
-        0 0 25px rgba(6, 182, 212, 0.9),
-        0 0 45px rgba(139, 92, 246, 0.7);
+        0 0 25px rgba(34, 197, 94, 0.9),
+        0 0 45px rgba(74, 222, 128, 0.7);
 }
